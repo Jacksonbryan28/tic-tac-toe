@@ -9,8 +9,6 @@
 
 //Created gameboard as a IIFE function, so only this one exists
 const Gameboard = (function () {
-  const rows = 6;
-  const columns = 7;
   const board = [
     ["", "", ""],
     ["", "", ""],
