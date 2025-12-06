@@ -22,8 +22,10 @@ const Gameboard = (function () {
     board[yPos][xPos] = tokenValue;
   }
 
+  const printBoard = () => console.log(board);
+
   //allowing us to access the following fuctions
-  return { getBoard, placeToken };
+  return { getBoard, placeToken, printBoard };
 })();
 
 console.log(Gameboard.getBoard());
