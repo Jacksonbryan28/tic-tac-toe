@@ -18,8 +18,14 @@ const Gameboard = (function () {
   //Lets us get the currrent status of the board
   const getBoard = () => board;
 
+  function placeToken(tokenValue, xPos, yPos) {
+    board[yPos][xPos] = tokenValue;
+  }
+
   //allowing us to access the following fuctions
-  return { getBoard };
+  return { getBoard, placeToken };
 })();
 
 console.log(Gameboard.getBoard());
+Gameboard.placeToken("X", 0, 0);
+Gameboard.placeToken("0", 1, 1);
