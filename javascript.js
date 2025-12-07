@@ -15,8 +15,21 @@ const Gameboard = (function () {
   //Console logs the board
   const printBoard = () => console.log(board);
 
-  //allowing us to access the following fuctions
+  //allowing us to access the following functions
   return { getBoard, placeToken, printBoard };
+})();
+
+const GameControl = (function (playerOneName, playerTwoName) {
+  const players = [
+    {
+      name: playerOneName,
+      token: "X",
+    },
+    {
+      name: playerTwoName,
+      token: "O",
+    },
+  ];
 })();
 
 console.log(Gameboard.getBoard());
