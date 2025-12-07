@@ -50,6 +50,7 @@ function gameControl(playerOneName, playerTwoName) {
     }
     //check if that place creates a winner
     function checkForWin() {
+      let isWinner = false;
       function checkColumn(index) {
         let board = gameboard.getBoard();
         if (
@@ -59,11 +60,11 @@ function gameControl(playerOneName, playerTwoName) {
             board[0][index] == players[1].token)
         ) {
           console.log("Winner in column " + index);
+          isWinner = true;
         } else {
           //console.log("No winner");
         }
       }
-
       function checkRow(index) {
         let board = gameboard.getBoard();
         if (
@@ -73,6 +74,7 @@ function gameControl(playerOneName, playerTwoName) {
             board[index][0] == players[1].token)
         ) {
           console.log("Winner in row " + index);
+          isWinner = true;
         } else {
           //console.log("No winner");
         }
@@ -82,9 +84,14 @@ function gameControl(playerOneName, playerTwoName) {
         checkColumn(i);
         checkRow(i);
       }
+      return isWinner;
     }
     //check for win
-    checkForWin();
+    if (checkForWin()) {
+      console.log(
+        `Congrats, ${gameController.getCurrentPlayer().name} has won!`
+      );
+    } 
     //switch turns
     switchPlayerTurn();
   }
