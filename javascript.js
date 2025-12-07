@@ -19,7 +19,7 @@ const Gameboard = (function () {
   return { getBoard, placeToken, printBoard };
 })();
 
-const GameControl = (function (playerOneName, playerTwoName) {
+function GameControl(playerOneName, playerTwoName) {
   const players = [
     {
       name: playerOneName,
@@ -30,8 +30,11 @@ const GameControl = (function (playerOneName, playerTwoName) {
       token: "O",
     },
   ];
-})();
+  return players;
+}
 
+let gameOne = GameControl("Jackson", "Darcy");
+console.log(gameOne[1].name);
 console.log(Gameboard.getBoard());
 Gameboard.placeToken("X", 0, 0);
 Gameboard.placeToken("0", 2, 1);
