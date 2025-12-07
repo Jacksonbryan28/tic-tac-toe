@@ -52,6 +52,7 @@ function gameControl(playerOneName, playerTwoName) {
       gameboard.placeToken(`${getCurrentPlayer().token}`, xPos, yPos);
     } else {
       console.log("Invalid token location");
+      return;
     }
     //check if that place creates a winner
     //switch turns
@@ -68,7 +69,7 @@ function gameControl(playerOneName, playerTwoName) {
     }
   }
 
-  return { players, getCurrentPlayer, switchPlayerTurn, playTurn };
+  return { players, getCurrentPlayer, playTurn };
 }
 
 // const gameControl = (function (playerOneName, playerTwoName) {
