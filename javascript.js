@@ -1,5 +1,5 @@
 //Created gameboard as a IIFE function, so only this one exists
-const Gameboard = (function () {
+const gameboard = (function () {
   const board = [
     ["", "", ""],
     ["", "", ""],
@@ -19,7 +19,7 @@ const Gameboard = (function () {
   return { getBoard, placeToken, printBoard };
 })();
 
-function GameControl(playerOneName, playerTwoName) {
+function gameControl(playerOneName, playerTwoName) {
   const players = [
     {
       name: playerOneName,
@@ -30,6 +30,13 @@ function GameControl(playerOneName, playerTwoName) {
       token: "O",
     },
   ];
+
+  //Testing using gameboard within gameControl function
+  // gameboard.placeToken("y", 2, 2);
+  // console.log("Board printed inside game control ");
+  // gameboard.printBoard();
+  // console.log("------");
+
   let currentPlayer = players[0];
 
   const getCurrentPlayer = () => currentPlayer;
@@ -37,10 +44,17 @@ function GameControl(playerOneName, playerTwoName) {
     currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
   };
 
+  function playTurn() {
+    //place a token
+    //check if it is a valid location, or if it is already played on
+    //check if that place creates a winner
+    //switch turns
+  }
+
   return { players, getCurrentPlayer, switchPlayerTurn };
 }
 
-// const GameControl = (function (playerOneName, playerTwoName) {
+// const gameControl = (function (playerOneName, playerTwoName) {
 //   const players = [
 //     {
 //       name: playerOneName,
@@ -54,15 +68,15 @@ function GameControl(playerOneName, playerTwoName) {
 //   return { players };
 // })("Jackson", "Darcy");
 
-const gameController = GameControl("Jackson", "Darcy");
-console.log(gameController.players[0].name);
-// console.log(GameControl.players[0].name);
-console.log(Gameboard.getBoard());
-Gameboard.placeToken("X", 0, 0);
-Gameboard.placeToken("0", 2, 1);
-Gameboard.placeToken("X", 0, 1);
-console.log(gameController.getCurrentPlayer());
-gameController.switchPlayerTurn();
-console.log(gameController.getCurrentPlayer());
-gameController.switchPlayerTurn();
-console.log(gameController.getCurrentPlayer());
+const gameController = gameControl("Jackson", "Darcy");
+// console.log(gameController.players[0].name);
+// // console.log(gameControl.players[0].name);
+// console.log(gameboard.getBoard());
+// gameboard.placeToken("X", 0, 0);
+// gameboard.placeToken("0", 2, 1);
+// gameboard.placeToken("X", 0, 1);
+// console.log(gameController.getCurrentPlayer());
+// gameController.switchPlayerTurn();
+// console.log(gameController.getCurrentPlayer());
+// gameController.switchPlayerTurn();
+// console.log(gameController.getCurrentPlayer());
