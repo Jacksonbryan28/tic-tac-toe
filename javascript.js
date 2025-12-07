@@ -51,8 +51,9 @@ function gameControl(playerOneName, playerTwoName) {
     //check if that place creates a winner
     function checkForWin() {
       let isWinner = false;
+      let board = gameboard.getBoard();
       function checkColumn(index) {
-        let board = gameboard.getBoard();
+        // let board = gameboard.getBoard();
         if (
           board[0][index] == board[1][index] &&
           board[0][index] == board[2][index] &&
@@ -66,7 +67,7 @@ function gameControl(playerOneName, playerTwoName) {
         }
       }
       function checkRow(index) {
-        let board = gameboard.getBoard();
+        // let board = gameboard.getBoard();
         if (
           board[index][0] == board[index][1] &&
           board[index][0] == board[index][2] &&
@@ -79,11 +80,24 @@ function gameControl(playerOneName, playerTwoName) {
           //console.log("No winner");
         }
       }
+      function checkDiagonals() {
+        if (
+          ((board[0][0] == board[1][1] && board[0][0] == board[2][2]) ||
+            (board[0][2] == board[1][1] && board[0][2] == board[2][0])) &&
+          (board[1][1] == players[0].token || board[1][1] == players[1].token)
+        ) {
+          console.log("Winner is diagonal");
+          isWinner = true;
+        } else {
+          console.log("No winner;");
+        }
+      }
 
       for (i = 0; i < 3; i++) {
         checkColumn(i);
         checkRow(i);
       }
+      checkDiagonals();
       return isWinner;
     }
     //check for win
@@ -91,7 +105,7 @@ function gameControl(playerOneName, playerTwoName) {
       console.log(
         `Congrats, ${gameController.getCurrentPlayer().name} has won!`
       );
-    } 
+    }
     //switch turns
     switchPlayerTurn();
   }
