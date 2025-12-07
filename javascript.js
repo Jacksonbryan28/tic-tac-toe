@@ -44,14 +44,31 @@ function gameControl(playerOneName, playerTwoName) {
     currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
   };
 
-  function playTurn() {
-    //place a token
+  function playTurn(xPos, yPos) {
     //check if it is a valid location, or if it is already played on
+    if (validLocation(xPos, yPos)) {
+      console.log("Valid token location");
+      //place a token
+      gameboard.placeToken(`${getCurrentPlayer().token}`, xPos, yPos);
+    } else {
+      console.log("Invalid token location");
+    }
     //check if that place creates a winner
     //switch turns
+    switchPlayerTurn();
   }
 
-  return { players, getCurrentPlayer, switchPlayerTurn };
+  //I am pretty sure this works, check again though
+  function validLocation(xPos, yPos) {
+    console.log(gameboard.getBoard()[yPos][xPos]);
+    if (gameboard.getBoard()[yPos][xPos] === "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  return { players, getCurrentPlayer, switchPlayerTurn, playTurn };
 }
 
 // const gameControl = (function (playerOneName, playerTwoName) {
