@@ -31,12 +31,6 @@ function gameControl(playerOneName, playerTwoName) {
     },
   ];
 
-  //Testing using gameboard within gameControl function
-  // gameboard.placeToken("y", 2, 2);
-  // console.log("Board printed inside game control ");
-  // gameboard.printBoard();
-  // console.log("------");
-
   let currentPlayer = players[0];
 
   const getCurrentPlayer = () => currentPlayer;
@@ -55,6 +49,27 @@ function gameControl(playerOneName, playerTwoName) {
       return;
     }
     //check if that place creates a winner
+    function checkForWin() {
+      function checkColumn(index) {
+        let board = gameboard.getBoard();
+        if (
+          board[0][index] == board[1][index] &&
+          board[0][index] == board[2][index] &&
+          (board[0][index] == players[0].token ||
+            board[0][index] == players[1].token)
+        ) {
+          console.log("Winner in column " + index);
+        } else {
+          console.log("No winner");
+        }
+      }
+
+      for (i = 0; i < 3; i++) {
+        checkColumn(i);
+      }
+    }
+    //check for win
+    checkForWin();
     //switch turns
     switchPlayerTurn();
   }
