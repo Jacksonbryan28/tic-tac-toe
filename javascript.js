@@ -1,6 +1,6 @@
 //Created gameboard as a IIFE function, so only this one exists
 const gameboard = (function () {
-  const board = [
+  let board = [
     ["", "", ""],
     ["", "", ""],
     ["", "", ""],
@@ -15,8 +15,16 @@ const gameboard = (function () {
   //Console logs the board
   const printBoard = () => console.log(board);
 
+  function resetBoard() {
+    board = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""],
+    ];
+  }
+
   //allowing us to access the following functions
-  return { getBoard, placeToken, printBoard };
+  return { getBoard, placeToken, printBoard, resetBoard };
 })();
 
 function gameControl(playerOneName, playerTwoName) {
