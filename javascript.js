@@ -60,7 +60,7 @@ function gameControl(playerOneName, playerTwoName) {
         ) {
           console.log("Winner in column " + index);
         } else {
-          console.log("No winner");
+          //console.log("No winner");
         }
       }
 
@@ -74,7 +74,7 @@ function gameControl(playerOneName, playerTwoName) {
         ) {
           console.log("Winner in row " + index);
         } else {
-          console.log("No winner");
+          //console.log("No winner");
         }
       }
 
