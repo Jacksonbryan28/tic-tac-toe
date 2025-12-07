@@ -64,8 +64,23 @@ function gameControl(playerOneName, playerTwoName) {
         }
       }
 
+      function checkRow(index) {
+        let board = gameboard.getBoard();
+        if (
+          board[index][0] == board[index][1] &&
+          board[index][0] == board[index][2] &&
+          (board[index][0] == players[0].token ||
+            board[index][0] == players[1].token)
+        ) {
+          console.log("Winner in row " + index);
+        } else {
+          console.log("No winner");
+        }
+      }
+
       for (i = 0; i < 3; i++) {
         checkColumn(i);
+        checkRow(i);
       }
     }
     //check for win
