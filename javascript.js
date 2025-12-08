@@ -147,29 +147,4 @@ function gameControl(playerOneName, playerTwoName) {
   return { players, getCurrentPlayer, playTurn, validLocation };
 }
 
-// const gameControl = (function (playerOneName, playerTwoName) {
-//   const players = [
-//     {
-//       name: playerOneName,
-//       token: "X",
-//     },
-//     {
-//       name: playerTwoName,
-//       token: "O",
-//     },
-//   ];
-//   return { players };
-// })("Jackson", "Darcy");
-
 const gameController = gameControl("Jackson", "Darcy");
-// console.log(gameController.players[0].name);
-// // console.log(gameControl.players[0].name);
-// console.log(gameboard.getBoard());
-// gameboard.placeToken("X", 0, 0);
-// gameboard.placeToken("0", 2, 1);
-// gameboard.placeToken("X", 0, 1);
-// console.log(gameController.getCurrentPlayer());
-// gameController.switchPlayerTurn();
-// console.log(gameController.getCurrentPlayer());
-// gameController.switchPlayerTurn();
-// console.log(gameController.getCurrentPlayer());
