@@ -147,4 +147,10 @@ function gameControl(playerOneName, playerTwoName) {
   return { players, getCurrentPlayer, playTurn, validLocation };
 }
 
+const displayControl = (function () {
+  function printScreen() {
+    
+  }
+})();
+
 const gameController = gameControl("Jackson", "Darcy");
