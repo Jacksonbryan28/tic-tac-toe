@@ -108,11 +108,25 @@ function gameControl(playerOneName, playerTwoName) {
       checkDiagonals();
       return isWinner;
     }
+    function checkForTie() {
+      let isTie = false;
+      let board = gameboard.getBoard();
+      let flatBoard = board.flat();
+
+      if (flatBoard.includes("")) {
+        isTie = false;
+      } else {
+        isTie = true;
+      }
+      return isTie;
+    }
     //check for win
     if (checkForWin()) {
       console.log(
         `Congrats, ${gameController.getCurrentPlayer().name} has won!`
       );
+    } else if (checkForTie()) {
+      console.log("It's a tie!");
     }
     //Print board
     console.log(gameboard.printBoard());
