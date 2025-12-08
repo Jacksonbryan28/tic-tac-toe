@@ -97,7 +97,7 @@ function gameControl(playerOneName, playerTwoName) {
           console.log("Winner is diagonal");
           isWinner = true;
         } else {
-          console.log("No winner;");
+          // console.log("No winner;");
         }
       }
 
@@ -114,6 +114,8 @@ function gameControl(playerOneName, playerTwoName) {
         `Congrats, ${gameController.getCurrentPlayer().name} has won!`
       );
     }
+    //Print board
+    console.log(gameboard.printBoard());
     //switch turns
     switchPlayerTurn();
   }
@@ -128,7 +130,7 @@ function gameControl(playerOneName, playerTwoName) {
     }
   }
 
-  return { players, getCurrentPlayer, playTurn };
+  return { players, getCurrentPlayer, playTurn, validLocation };
 }
 
 // const gameControl = (function (playerOneName, playerTwoName) {
