@@ -149,8 +149,18 @@ function gameControl(playerOneName, playerTwoName) {
 
 const displayControl = (function () {
   function printScreen() {
-    
+    const board = gameboard.getBoard();
+    const flatBoard = board.flat();
+    const gameGrid = document.querySelector("#gameWrapper");
+    flatBoard.forEach(() => {
+      let div = document.createElement("div");
+      div.classList.add("placeholderCell");
+      div.textContent = "x";
+      gameGrid.appendChild(div);
+    });
   }
+  return { printScreen };
 })();
 
 const gameController = gameControl("Jackson", "Darcy");
+displayControl.printScreen();
