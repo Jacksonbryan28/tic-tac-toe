@@ -134,7 +134,7 @@ function gameControl(playerOneName, playerTwoName) {
     switchPlayerTurn();
   }
 
-  //I am pretty sure this works, check again though
+  //If the x position and y position are === to a empty space, it is a valid location, if not returns false
   function validLocation(xPos, yPos) {
     console.log(gameboard.getBoard()[yPos][xPos]);
     if (gameboard.getBoard()[yPos][xPos] === "") {
@@ -147,6 +147,7 @@ function gameControl(playerOneName, playerTwoName) {
   return { players, getCurrentPlayer, playTurn, validLocation };
 }
 
+//Controls the UI based off of the game control
 const displayControl = (function () {
   function printScreen() {
     const board = gameboard.getBoard();
@@ -155,7 +156,6 @@ const displayControl = (function () {
     flatBoard.forEach(() => {
       let div = document.createElement("div");
       div.classList.add("placeholderCell");
-      div.textContent = "x";
       gameGrid.appendChild(div);
     });
   }
@@ -163,4 +163,5 @@ const displayControl = (function () {
 })();
 
 const gameController = gameControl("Jackson", "Darcy");
+//Prints screen
 displayControl.printScreen();
