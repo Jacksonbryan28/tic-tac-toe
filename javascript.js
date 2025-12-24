@@ -151,12 +151,22 @@ function gameControl(playerOneName, playerTwoName) {
 
 //Controls the UI based off of the game control
 const displayControl = (function () {
-  function printScreen() {
-    //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
-    const board = gameboard.getBoard();
-    const flatBoard = board.flat();
-    const gameGrid = document.querySelector("#gameWrapper");
+  //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
+  const board = gameboard.getBoard();
+  const flatBoard = board.flat();
+  const gameGrid = document.querySelector("#gameWrapper");
 
+  function inputListener() {
+    gameGrid.addEventListener("click", (event) => {
+      const target = event.target;
+      //creates an array of targets parent elements children, then finds the index of the target and stores it in index
+      const index = [...target.parentElement.children].indexOf(target);
+
+      console.log(index);
+    });
+  }
+
+  function printScreen() {
     //Clears screen before printing new one
     gameGrid.innerHTML = "";
 
@@ -169,9 +179,10 @@ const displayControl = (function () {
     });
   }
 
-  return { printScreen };
+  return { printScreen, inputListener };
 })();
 
 const gameController = gameControl("Jackson", "Darcy");
 //Prints screen
 displayControl.printScreen();
+displayControl.inputListener();
