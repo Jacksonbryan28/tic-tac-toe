@@ -152,20 +152,23 @@ function gameControl(playerOneName, playerTwoName) {
 //Controls the UI based off of the game control
 const displayControl = (function () {
   function printScreen() {
+    //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
     const board = gameboard.getBoard();
     const flatBoard = board.flat();
     const gameGrid = document.querySelector("#gameWrapper");
+
     //Clears screen before printing new one
     gameGrid.innerHTML = "";
+
+    //Runs through each board item and displays the token in the correct location on the grid
     flatBoard.forEach((item, index) => {
       let div = document.createElement("div");
       div.classList.add("placeholderCell");
-      //prints
-      // div.textContent = index;
       div.textContent = item;
       gameGrid.appendChild(div);
     });
   }
+
   return { printScreen };
 })();
 
