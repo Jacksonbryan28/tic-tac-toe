@@ -162,10 +162,10 @@ const displayControl = (function () {
 
     //Runs through each board item and displays the token in the correct location on the grid
     flatBoard.forEach((item, index) => {
-      let div = document.createElement("div");
-      div.classList.add("placeholderCell");
-      div.textContent = item;
-      gameGrid.appendChild(div);
+      let button = document.createElement("button");
+      button.classList.add("placeholderCell");
+      button.textContent = item;
+      gameGrid.appendChild(button);
     });
   }
 
