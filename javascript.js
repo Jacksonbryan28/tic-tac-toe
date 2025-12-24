@@ -153,9 +153,10 @@ const displayControl = (function () {
     const board = gameboard.getBoard();
     const flatBoard = board.flat();
     const gameGrid = document.querySelector("#gameWrapper");
-    flatBoard.forEach(() => {
+    flatBoard.forEach((item, index) => {
       let div = document.createElement("div");
       div.classList.add("placeholderCell");
+      div.textContent = index;
       gameGrid.appendChild(div);
     });
   }
