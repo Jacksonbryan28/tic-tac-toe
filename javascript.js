@@ -1,9 +1,9 @@
 //Created gameboard as a IIFE function, so only this one exists
 const gameboard = (function () {
   let board = [
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
+    ["X", "O", ""],
+    ["X", "X", "O"],
+    ["O", "", ""],
   ];
 
   //Lets us get the current status of the board
@@ -128,8 +128,10 @@ function gameControl(playerOneName, playerTwoName) {
     } else if (checkForTie()) {
       console.log("It's a tie!");
     }
-    //Print board
+    //Print console board
     console.log(gameboard.printBoard());
+    //Print UI board
+    displayControl.printScreen();
     //switch turns
     switchPlayerTurn();
   }
@@ -153,10 +155,14 @@ const displayControl = (function () {
     const board = gameboard.getBoard();
     const flatBoard = board.flat();
     const gameGrid = document.querySelector("#gameWrapper");
+    //Clears screen before printing new one
+    gameGrid.innerHTML = "";
     flatBoard.forEach((item, index) => {
       let div = document.createElement("div");
       div.classList.add("placeholderCell");
-      div.textContent = index;
+      //prints
+      // div.textContent = index;
+      div.textContent = item;
       gameGrid.appendChild(div);
     });
   }
