@@ -1,9 +1,9 @@
 //Created gameboard as a IIFE function, so only this one exists
 const gameboard = (function () {
   let board = [
-    ["X", "O", ""],
-    ["X", "X", "O"],
-    ["O", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
   ];
 
   //Lets us get the current status of the board
@@ -125,8 +125,10 @@ function gameControl(playerOneName, playerTwoName) {
       console.log(
         `Congrats, ${gameController.getCurrentPlayer().name} has won!`
       );
+      // return `Congrats, ${gameController.getCurrentPlayer().name} has won!`;
     } else if (checkForTie()) {
       console.log("It's a tie!");
+      // return "It's a tie!";
     }
     //Print console board
     console.log(gameboard.printBoard());
@@ -156,14 +158,60 @@ const displayControl = (function () {
   const flatBoard = board.flat();
   const gameGrid = document.querySelector("#gameWrapper");
 
+  //listens for input, and returns index of click on grid
   function inputListener() {
+    let index = null;
+    let twoDIndex = [];
+
     gameGrid.addEventListener("click", (event) => {
       const target = event.target;
       //creates an array of targets parent elements children, then finds the index of the target and stores it in index
-      const index = [...target.parentElement.children].indexOf(target);
-
+      index = [...target.parentElement.children].indexOf(target);
       console.log(index);
+      twoDIndex = convertTo2D(index);
+      console.log(twoDIndex);
+      gameController.playTurn(twoDIndex[0], twoDIndex[1]);
     });
+
+    return { index };
+  }
+
+  function convertTo2D(index) {
+    let gridPlacement = [0, 0];
+    switch (index) {
+      case 0:
+        gridPlacement[0] = 0;
+        gridPlacement[1] = 0;
+        break;
+      case 1:
+        gridPlacement = [1, 0];
+        break;
+      case 2:
+        gridPlacement = [2, 0];
+        break;
+      case 3:
+        gridPlacement = [0, 1];
+        break;
+      case 4:
+        gridPlacement = [1, 1];
+        break;
+      case 5:
+        gridPlacement = [2, 1];
+        break;
+      case 6:
+        gridPlacement = [0, 2];
+        break;
+      case 7:
+        gridPlacement = [1, 2];
+        break;
+      case 8:
+        gridPlacement = [2, 2];
+        break;
+    }
+    // console.log(gridPlacement[0]);
+    // console.log(gridPlacement[1]);
+
+    return gridPlacement;
   }
 
   function printScreen() {
