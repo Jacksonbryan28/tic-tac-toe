@@ -21,6 +21,7 @@ const gameboard = (function () {
       ["", "", ""],
       ["", "", ""],
     ];
+    displayControl.printScreen();
   }
 
   //allowing us to access the following functions
@@ -153,13 +154,12 @@ function gameControl(playerOneName, playerTwoName) {
 
 //Controls the UI based off of the game control
 const displayControl = (function () {
-  //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
-  const board = gameboard.getBoard();
-  const flatBoard = board.flat();
-  const gameGrid = document.querySelector("#gameWrapper");
-
   //listens for input, and returns index of click on grid
   function inputListener() {
+    //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
+    const board = gameboard.getBoard();
+    const flatBoard = board.flat();
+    const gameGrid = document.querySelector("#gameWrapper");
     let index = null;
     let twoDIndex = [];
 
@@ -215,11 +215,15 @@ const displayControl = (function () {
   }
 
   function printScreen() {
+    //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
+    const board = gameboard.getBoard();
+    const flatBoard = board.flat();
+    const gameGrid = document.querySelector("#gameWrapper");
     //Clears screen before printing new one
     gameGrid.innerHTML = "";
 
     //Runs through each board item and displays the token in the correct location on the grid
-    flatBoard.forEach((item, index) => {
+    flatBoard.forEach((item) => {
       let button = document.createElement("button");
       button.classList.add("placeholderCell");
       button.textContent = item;
