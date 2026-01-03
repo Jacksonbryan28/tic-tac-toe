@@ -1,5 +1,37 @@
-h1 {
-  color: red;
+:root {
+  --base-color: white;
+  --base-variant: #e8e9ed;
+  --border-color: #ddd;
+  --text-color: var(--blue-900);
+  --secondary-text: #232738;
+  --primary-color: var(--blue-900);
+  --accent-color: var(--blue-100);
+  --disabled-color: var(--blue-200);
+
+  --blue-100: oklch(0.9229 0.03593750000000001 266);
+  --blue-200: oklch(0.8457 0.07500000000000001 266);
+  --blue-300: oklch(0.7373 0.13281250000000003 266);
+  --blue-400: oklch(0.6367 0.19375000000000003 266);
+  --blue-500: oklch(0.5098 0.2734375 266);
+  --blue-600: oklch(0.5244 0.26406250000000003 266);
+  --blue-700: oklch(0.4424 0.3 266);
+  --blue-800: oklch(0.3389 0.22968750000000004 266);
+  --blue-900: oklch(0.2529 0.17187500000000003 266);
+}
+.darkmode {
+  --base-color: #070b1d;
+  --base-variant: #101425;
+  --border-color: #444;
+  --text-color: var(--blue-100);
+  --secondary-text: #a4a5b8;
+  --primary-color: var(--blue-600);
+  --accent-color: var(--blue-800);
+  --disabled-color: var(var(--blue-800));
+}
+
+body {
+  background-color: var(--base-color);
+  color: var(--text-color);
 }
 
 .gameWrapper {
@@ -11,10 +43,16 @@ h1 {
 }
 
 .placeholderCell {
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid var(--border-color);
+  background-color: var(--base-color);
+  color: var(--text-color);
+  border-radius: 8px;
 }
 
 .placeholderCell:hover {
-  background-color: lightblue;
+  background-color: var(--accent-color);
+}
+
+.placeholderCell:disabled {
+  background-color: lightgray;
 }
