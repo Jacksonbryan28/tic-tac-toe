@@ -180,6 +180,9 @@ const displayControl = (function () {
       gameController.playTurn(twoDIndex[0], twoDIndex[1]);
     });
 
+    btnReset.addEventListener("click", (event) => {
+      gameboard.resetBoard();
+    });
     return { index };
   }
 
