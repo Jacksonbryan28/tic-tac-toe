@@ -1,3 +1,10 @@
+//Pulls in buttons from UI
+const btnReset = document.querySelector("#reset");
+const btnEditNames = document.querySelector("#editNames");
+const displayCurrentPlayer = document.querySelector("#currentPlayer");
+const displayPlayerOneName = document.querySelector("#playerOne");
+const displayPlayerTwoName = document.querySelector("#playerTwo");
+
 //Created gameboard as a IIFE function, so only this one exists
 const gameboard = (function () {
   let board = [
@@ -133,10 +140,10 @@ function gameControl(playerOneName, playerTwoName) {
     }
     //Print console board
     console.log(gameboard.printBoard());
-    //Print UI board
-    displayControl.printScreen();
     //switch turns
     switchPlayerTurn();
+    //Print UI board
+    displayControl.printScreen();
   }
 
   //If the x position and y position are === to a empty space, it is a valid location, if not returns false
@@ -215,6 +222,8 @@ const displayControl = (function () {
   }
 
   function printScreen() {
+    //Shows current player name
+    currentPlayer.textContent = gameController.getCurrentPlayer().name;
     //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
     const board = gameboard.getBoard();
     const flatBoard = board.flat();
