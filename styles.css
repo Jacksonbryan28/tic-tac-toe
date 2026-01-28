@@ -50,6 +50,14 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.playerInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  p {
+    margin: 0 0;
+  }
+}
 
 .placeholderCell {
   border: 1px solid var(--border-color);
