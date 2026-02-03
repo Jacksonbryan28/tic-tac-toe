@@ -73,3 +73,21 @@ body {
 .placeholderCell:disabled {
   background-color: lightgray;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalBtns {
+  margin-top: 16px;
+}
+input {
+  margin-bottom: 16px;
+}

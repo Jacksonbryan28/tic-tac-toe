@@ -1,6 +1,8 @@
 //Pulls in buttons from UI
 const btnReset = document.querySelector("#reset");
 const btnEditNames = document.querySelector("#editNames");
+const btnCancelNameModal = document.querySelector("#btnCancelNameModal");
+const dialogChangeNames = document.querySelector("#dialogEditNames");
 const displayCurrentPlayer = document.querySelector("#currentPlayer");
 const displayPlayerOneName = document.querySelector("#playerOne");
 const displayPlayerTwoName = document.querySelector("#playerTwo");
@@ -182,6 +184,13 @@ const displayControl = (function () {
 
     btnReset.addEventListener("click", (event) => {
       gameboard.resetBoard();
+    });
+    btnEditNames.addEventListener("click", (event) => {
+      dialogChangeNames.showModal();
+    });
+    btnCancelNameModal.addEventListener("click", (event) => {
+      event.preventDefault();
+      dialogChangeNames.close();
     });
     return { index };
   }
