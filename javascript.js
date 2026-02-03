@@ -49,6 +49,11 @@ function gameControl(playerOneName, playerTwoName) {
     },
   ];
 
+  function changeNames(nameOne, nameTwo) {
+    players[0].name = nameOne;
+    players[1].name = nameTwo;
+  }
+
   let currentPlayer = players[0];
 
   const getCurrentPlayer = () => currentPlayer;
@@ -158,7 +163,7 @@ function gameControl(playerOneName, playerTwoName) {
     }
   }
 
-  return { players, getCurrentPlayer, playTurn, validLocation };
+  return { players, getCurrentPlayer, playTurn, validLocation, changeNames };
 }
 
 //Controls the UI based off of the game control
