@@ -1,13 +1,3 @@
-//Pulls in buttons from UI
-const btnReset = document.querySelector("#reset");
-const btnEditNames = document.querySelector("#editNames");
-const btnCancelNameModal = document.querySelector("#btnCancelNameModal");
-const btnSaveNameModal = document.querySelector("#btnSaveNameModal");
-const dialogChangeNames = document.querySelector("#dialogEditNames");
-const displayCurrentPlayer = document.querySelector("#currentPlayer");
-const displayPlayerOneName = document.querySelector("#playerOne");
-const displayPlayerTwoName = document.querySelector("#playerTwo");
-
 //Created gameboard as a IIFE function, so only this one exists
 const gameboard = (function () {
   let board = [
@@ -169,6 +159,16 @@ function gameControl(playerOneName, playerTwoName) {
 
 //Controls the UI based off of the game control
 const displayControl = (function () {
+  //Pulls in buttons from UI
+  const btnReset = document.querySelector("#reset");
+  const btnEditNames = document.querySelector("#editNames");
+  const btnCancelNameModal = document.querySelector("#btnCancelNameModal");
+  const btnSaveNameModal = document.querySelector("#btnSaveNameModal");
+  const dialogChangeNames = document.querySelector("#dialogEditNames");
+  const displayCurrentPlayer = document.querySelector("#currentPlayer");
+  const displayPlayerOneName = document.querySelector("#playerOne");
+  const displayPlayerTwoName = document.querySelector("#playerTwo");
+
   //listens for input, and returns index of click on grid
   function inputListener() {
     //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
