@@ -2,6 +2,7 @@
 const btnReset = document.querySelector("#reset");
 const btnEditNames = document.querySelector("#editNames");
 const btnCancelNameModal = document.querySelector("#btnCancelNameModal");
+const btnSaveNameModal = document.querySelector("#btnSaveNameModal");
 const dialogChangeNames = document.querySelector("#dialogEditNames");
 const displayCurrentPlayer = document.querySelector("#currentPlayer");
 const displayPlayerOneName = document.querySelector("#playerOne");
@@ -196,6 +197,16 @@ const displayControl = (function () {
     btnCancelNameModal.addEventListener("click", (event) => {
       event.preventDefault();
       dialogChangeNames.close();
+    });
+    btnSaveNameModal.addEventListener("click", (event) => {
+      event.preventDefault();
+      const inputNameOne = document.querySelector("#inputNameOne");
+      const inputNameTwo = document.querySelector("#inputNameTwo");
+      gameController.changeNames(inputNameOne.value, inputNameTwo.value);
+      displayPlayerOneName.textContent = inputNameOne.value;
+      displayPlayerTwoName.textContent = inputNameTwo.value;
+      dialogChangeNames.close();
+      displayControl.printScreen();
     });
     return { index };
   }
