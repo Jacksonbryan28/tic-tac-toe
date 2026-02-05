@@ -274,7 +274,7 @@ const displayControl = (function () {
   return { printScreen, inputListener };
 })();
 
-const gameController = gameControl("Jackson", "Darcy");
+const gameController = gameControl("Player one", "Player two");
 //Prints screen
 displayControl.printScreen();
 displayControl.inputListener();
