@@ -252,6 +252,9 @@ const displayControl = (function () {
   function printScreen() {
     //Shows current player name
     currentPlayer.textContent = gameController.getCurrentPlayer().name;
+    //updates names of players
+    displayPlayerOneName.textContent = gameController.players[0].name;
+    displayPlayerTwoName.textContent = gameController.players[1].name;
     //Pulls current gameboard, flattens it into a 1D array, and select the grid in DOM
     const board = gameboard.getBoard();
     const flatBoard = board.flat();
